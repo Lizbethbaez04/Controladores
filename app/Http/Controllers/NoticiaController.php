@@ -3,15 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Noticia;
 
 class NoticiaController extends Controller
 {
     public function lista()
-    {
-        $noticias = array();
-        $noticias[] = array("id" =>1, "titulo" => "Descubren cura del cancer", "fecha" => "10/01/2021");
-        $noticias[] = array("id" =>2, "titulo" => "Vuelven clases presenciales", "fecha" => "11/01/2021");
-
+    {        
+        $noticias = Noticia::all();
         $argumentos = array();
         $argumentos["noticias"] = $noticias;
 
@@ -20,16 +18,11 @@ class NoticiaController extends Controller
 
     public function detalles($id)
     {
-        //Simulacion de solicitud de detalles de noticia
-        $detalles_noticia = array();
-        $detalles_noticia["titulo"] = "Noticia #".$id;
-        $detalles_noticia["autor"] = "Autor de la noticia #".$id;
-        $detalles_noticia["fecha"] = "28/01/2021";
-        $detalles_noticia["cuerpo"] = "Este es el texto de la noticia #".$id;
-        $detalles_noticia["fotos"] = "https://wipy.tv/wp-content/uploads/2019/01/Muri%C3%B3-el-perrito-m%C3%A1s-famosos-de-internet-2.jpg";
+        $noticia = Noticia::find($id);
+        
 
         $argumentos = array();
-        $argumentos["noticia"] = $detalles_noticia;
+        $argumentos["noticia"] = $noticia;
 
         return view('noticias.detalles', $argumentos);
     }
