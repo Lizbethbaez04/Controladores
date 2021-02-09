@@ -23,14 +23,16 @@ Route::get('/noticias', [NoticiaController::class, "lista"])->name("noticias");
 Route::get('/noticias/{id}', [NoticiaController::class, "detalles"])->name("noticias.detalles");
 
 //Recurso -> Entidad del sistema
-// + Crear *create
-// - Almacenar *store
-// + Listar *index
-// - Mostrar detalles *show
-// - Editar *edit
-// - Actualizar *update
-// - Eliminar *delete/destroy
+// + Crear *create - GET
+// + Almacenar *store - POST
+// + Listar *index - GET
+// - Mostrar detalles *show - GET
+// + Editar *edit - GET
+// - Actualizar *update - PUT
+// - Eliminar *delete/destroy - DELETE
 
 Route::get("/admin/noticias", [AdminNoticiaController::class, "index"])->name("admin.noticias.index");
 Route::get("/admin/noticias/create", [AdminNoticiaController::class, "create"])->name("admin.noticias.create");
 Route::post("/admin/noticias", [AdminNoticiaController::class, "store"])->name("admin.noticias.store");
+Route::get("/admin/noticias/{id}/edit", [AdminNoticiaController::class, "edit"])->name("admin.noticias.edit");
+Route::put("/admin/noticias/{id}", [AdminNoticiaController::class, "update"])->name("admin.noticias.update");
