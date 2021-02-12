@@ -17,7 +17,7 @@
     <h1>Editar noticia: {{ $noticia->id }}</h1>
     <form method="POST" action="{{ route("admin.noticias.update", $noticia->id) }}">
         @csrf
-        @method('put')
+        @method("put")
         <label>Título:</label>
         <input name="titulo" type="text" value="{{ $noticia->titulo }}">
         <label>Fecha:</label>

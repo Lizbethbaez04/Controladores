@@ -64,4 +64,31 @@ class NoticiaController extends Controller
         }
         return redirect()->route("admin.noticias.edit", $noticia->id)->with("error", "No se pudo actualizar noticia");
     }
+
+    public function confirmdelete($id)
+    {
+        $noticia = Noticia::find($id);
+
+        $argumentos = array();
+        $argumentos["noticia"] = $noticia;
+
+        return view("admin.noticias.confirmdelete", $argumentos);
+    }
+    public function destroy($id)
+    {
+        $noticia = Noticia::find($id);
+        if($noticia->delete())
+        {
+            return redirect()->route("admin.noticias.index")->with("exito", "Se eliminó correctamente");
+        }
+        return redirect()->route("admin.noticias.index")->with("error", "No se pudo eliminar la noticia");
+    }
+    public function show($id)
+    {
+        $noticia = Noticia::find($id);
+        $argumentos = array();
+        $argumentos["noticia"] = $noticia;
+
+        return view("admin.noticias.show", $argumentos);
+    }
 }

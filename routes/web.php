@@ -28,11 +28,14 @@ Route::get('/noticias/{id}', [NoticiaController::class, "detalles"])->name("noti
 // + Listar *index - GET
 // - Mostrar detalles *show - GET
 // + Editar *edit - GET
-// - Actualizar *update - PUT
-// - Eliminar *delete/destroy - DELETE
+// + Actualizar *update - PUT
+// + Eliminar *delete/destroy - DELETE
 
 Route::get("/admin/noticias", [AdminNoticiaController::class, "index"])->name("admin.noticias.index");
 Route::get("/admin/noticias/create", [AdminNoticiaController::class, "create"])->name("admin.noticias.create");
 Route::post("/admin/noticias", [AdminNoticiaController::class, "store"])->name("admin.noticias.store");
 Route::get("/admin/noticias/{id}/edit", [AdminNoticiaController::class, "edit"])->name("admin.noticias.edit");
 Route::put("/admin/noticias/{id}", [AdminNoticiaController::class, "update"])->name("admin.noticias.update");
+Route::get("/admin/noticias/{id}/confirmdelete", [AdminNoticiaController::class, "confirmdelete"])->name("admin.noticias.confirmdelete");
+Route::delete("/admin/noticias/{id}", [AdminNoticiaController::class, "destroy"])->name("admin.noticias.destroy");
+Route::get("/admin/noticias/{id}", [NoticiaController::class, "show"])->name("admin.noticias.show");
