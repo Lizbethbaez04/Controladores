@@ -39,7 +39,7 @@
             @csrf
             <div class="form-group">
                 <label>Título:</label>
-                <input class="form-control" name="titulo" type="text">
+                <input class="form-control" name="titulo" type="text" required>
             </div>
             <div class="form-group">
             <label>Fecha:</label>
