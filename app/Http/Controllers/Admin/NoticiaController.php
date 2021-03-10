@@ -9,6 +9,11 @@ use App\Models\Noticia;
 
 class NoticiaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware("auth");
+    }
+
     //Listar las noticias
     public function index()
     {
