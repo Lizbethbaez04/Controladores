@@ -7,22 +7,20 @@ use App\Models\Noticia;
 
 class NoticiaController extends Controller
 {
-    public function lista()
-    {        
+    public function lista() {
         $noticias = Noticia::all();
+
         $argumentos = array();
         $argumentos["noticias"] = $noticias;
 
         return view("noticias.lista", $argumentos);
     }
 
-    public function detalles($id)
-    {
-        $noticia = Noticia::find($id);
-        
-
+    public function detalles($id) {
+       $noticia = Noticia::find($id);
+  
         $argumentos = array();
-        $argumentos["noticia"] = $noticia;
+        $argumentos["noticia"] = $noticia; 
 
         return view('noticias.detalles', $argumentos);
     }

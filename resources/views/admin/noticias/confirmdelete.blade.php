@@ -4,18 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirmar eliminación</title>
+    <title>Confirmar eliminar</title>
 </head>
 <body>
-    <a href="{{ route("admin.noticias.index") }}">Volver a lista de noticias</a>
-    <h1>Confirmar eliminación de noticia: {{ $noticia->id }}</h1>
-    <p>¿Estás seguro de eliminar la noticia: {{ $noticia->titulo }}?</p>    
-    <form method="POST" action="{{ route("admin.noticias.destroy", $noticia->id) }}">
+<a href="{{ route("admin.noticias.store") }}">Volver a la lista de noticias</a>
+    <h1>Confirmar eliminacion de noticia: {{ $noticia->id }}</h1>
+    <p>¿Está seguro de eliminar la noticia {{ $noticia->titulo}}?</p>
+    <form method="POST" action=" {{ route("admin.noticias.destroy", $noticia->id)}}">
         @csrf
         @method("delete")
-        <a href="{{ route("admin.noticias.index") }}"><button type="button">Cancelar</button></a>
+        <a href="{{ route("admin.noticias.index")}}"><button type="submit">Cancelar</button></a>
         <button type="submit">Confirmar</button>
     </form>
-    
 </body>
 </html>

@@ -3,9 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InicioController;
 use App\Http\Controllers\NoticiaController;
-
 use App\Http\Controllers\Admin\NoticiaController as AdminNoticiaController;
-Use App\Http\Controllers\Admin\TableroController;
+use App\Http\Controllers\Admin\TableroController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,27 +18,24 @@ Use App\Http\Controllers\Admin\TableroController;
 |
 */
 
-
-//Registro de las rutas de autenticación
+//registro de autenticacion
 require __DIR__.'/auth.php';
 
-//Rutas de noticias
-Route::get('/', [InicioController::class, "index"]);
+//rutas de noticias
+Route::get('/', [NoticiaController::class, "lista"])->name("noticias");
 Route::get('/contacto', [InicioController::class, "contacto"]);
-
-Route::get('/noticias', [NoticiaController::class, "lista"])->name("noticias");
+//Route::get('/noticias', [NoticiaController::class, "lista"])->name("noticias");
 Route::get('/noticias/{id}', [NoticiaController::class, "detalles"])->name("noticias.detalles");
 
-//Rutas del admin de noticias
-
-//Recurso -> Entidad del sistema
-// + Crear *create - GET
-// + Almacenar *store - POST
-// + Listar *index - GET
-// - Mostrar detalles *show - GET
-// + Editar *edit - GET
-// + Actualizar *update - PUT
-// + Eliminar *delete/destroy - DELETE
+//rutas del admin de noticias
+//Recurso
+//-Crear *create - GET
+//-Almacenar *store - POST
+//-Listar *index - GET
+//-Mostrar detalles *show - GET
+//-Editar *edit - GET
+//-Actualizar *update - PUT
+//-Eliminar *destroy - DELETE
 
 Route::get("/admin/noticias", [AdminNoticiaController::class, "index"])->name("admin.noticias.index");
 Route::get("/admin/noticias/create", [AdminNoticiaController::class, "create"])->name("admin.noticias.create");
@@ -46,10 +44,8 @@ Route::get("/admin/noticias/{id}/edit", [AdminNoticiaController::class, "edit"])
 Route::put("/admin/noticias/{id}", [AdminNoticiaController::class, "update"])->name("admin.noticias.update");
 Route::get("/admin/noticias/{id}/confirmdelete", [AdminNoticiaController::class, "confirmdelete"])->name("admin.noticias.confirmdelete");
 Route::delete("/admin/noticias/{id}", [AdminNoticiaController::class, "destroy"])->name("admin.noticias.destroy");
-Route::get("/admin/noticias/{id}", [NoticiaController::class, "show"])->name("admin.noticias.show");
-
-//Tablero
+Route::get("/admin/noticias/{id}",[AdminNoticiaController::class, "show"])->name("admin.noticias.show");
+ 
+//tablero
 Route::get("/admin", [TableroController::class, "tablero"])->name("admin.tablero");
-
-
 Route::get("/admin/blank", [AdminNoticiaController::class, "blank"])->name("admin.blank");

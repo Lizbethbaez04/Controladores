@@ -6,10 +6,10 @@
     <title>Contacto</title>
 </head>
 <body>
-    <h1>Formulario de contacto</h1>
+    <h1>Formulario de Contacto</h1>
     <form>
         <label>Nombre</label>
-        <input type="text" placeholder="Escribe tu nombre">
+        <input type="text" placeholder="Escribre tu nombre">
         <button type="submit">Enviar</button>
     </form>
 </body>

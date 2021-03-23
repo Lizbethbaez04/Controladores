@@ -7,7 +7,6 @@
 </head>
 <body>
     <h1>Estás en la pantalla de inicio</h1>
-
-    <p>Este es un párrafo HTML</p>
+    <p>Este es un párrafo en HTML</p>
 </body>
 </html>

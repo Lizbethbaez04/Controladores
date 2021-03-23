@@ -8,5 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Noticia extends Model
 {
     use HasFactory;
+    //Laravel busca por default una tabla que se llame igual pero en minusculas
+    //Y con una 's' al final
+
     protected $table = "noticias1";
 }

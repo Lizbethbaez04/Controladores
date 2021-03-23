@@ -1,6 +1,6 @@
 @extends('layouts.admin')
-@section("titulo", "tablero")
-    @section("contenido_principal")
+@section("titulo", "tablero")  
+@section("contenido_principal")  
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
@@ -46,4 +46,4 @@
 
     </section>
     <!-- /.content -->
-    @endsection  
+@endsection
